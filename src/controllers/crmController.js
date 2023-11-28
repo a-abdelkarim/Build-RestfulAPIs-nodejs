@@ -33,3 +33,16 @@ export const getContact = async (req, res) => {
         res.send(err);
     }
 }
+
+export const updateContact = async (req, res) => {
+    try {
+        let updatedContact = await Contact.findByIdAndUpdate(
+            { _id: req.params.contactId },
+            req.body,
+            { new: true }
+        )
+        res.send(updatedContact);
+    } catch (err) {
+        res.send(err);
+    }
+}
