@@ -13,6 +13,10 @@ mongoose.connect('mongodb://localhost/crm', {
     useNewUrlParser: true
 })
 
+// bodyParser setup
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 routes(app);
 
 app.get('/', (req, res) => {
